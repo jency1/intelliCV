@@ -1,12 +1,45 @@
-# React + Vite
+# 🧠 intelliCV : AI-Powered Resume Builder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+IntelliCV is a powerful and intuitive resume builder platform designed to help users create professional resumes quickly using real-time previews and AI assistance.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- 🧾 **Multi-Step Resume Builder**:
+  - Personal Information
+  - Professional Summary
+  - Work Experience
+  - Education
+  - Skills
+  - Achievements
+-  🔐 **User Authentication** with Clerk (Sign In, Sign Up, Secure Access)
+- 🧠 **Generate with AI** Button for auto-filling Summary
+- ✏️ **Flexibility to Add or Remove Details** like skills, achievements, experience, and more
+- 📄 **Live Resume Preview** that updates in real-time as user types
+- 📥 **Download & Share Options** after resume completion
+- 📊 **User Dashboard** showing all created resumes in a card layout
+- 💾 **Data Persistence** with localStorage + Strapi backend
+- 📱 **Fully Responsive** for Mobile, Tablet, and Desktop
+- 💬 **User-Friendly Interface** with modern design and smooth transitions
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🧑‍💻 Tech Stack
+
+- **Frontend**:  
+  - React.js (SPA)  
+  - Tailwind CSS (Utility-first styling)  
+  - Lucide Icons (for consistent iconography)  
+  - React Router DOM (Routing and navigation)
+
+- **Authentication**:  
+  - Clerk (for secure and seamless user login, signup, and user state management)
+
+- **Backend**:  
+  - Strapi (Headless CMS for Resume data management)  
+  - REST API-based communication between frontend and backend
+
+
+
+
