@@ -41,5 +41,64 @@ IntelliCV is a powerful and intuitive resume builder platform designed to help u
   - REST API-based communication between frontend and backend
 
 
+---
+
+
+## 🔎 Preview
+
+### 🌿 Landing Page Preview
+<img src="./public/screenshots/landing.png" alt="Landing Page Preview" width="700"/>
+
+---
+
+### 🖥️ Dashboard View
+<img src="./public/screenshots/dashboard.png" alt="Dashboard View" width="700"/>
+
+---
+
+### 🔐 Sign-in / Sign-out Preview
+<img src="./public/screenshots/sign-in.png" alt="Sign-in / Sign-out" width="300" height="300" />
+
+---
+
+### 👤 Personal Detail Form
+<img src="./public/screenshots/personal-detail.png" alt="Personal Detail Form" width="700"/>
+
+---
+
+### 🧠 Summary Form
+<img src="./public/screenshots/summary.png" alt="Summary Form" width="700"/>
+
+---
+
+### 💼 Experience Form
+<img src="./public/screenshots/experience.png" alt="Experience Form" width="700"/>
+
+---
+
+### 🎓 Education Form
+<img src="./public/screenshots/education.png" alt="Education Form" width="700"/>
+
+---
+
+### 🛠️ Skills Form
+<img src="./public/screenshots/skills.png" alt="Skills Form" width="700"/>
+
+---
+
+### 🏆 Achievements Form
+<img src="./public/screenshots/achievements.png" alt="Achievements Form" width="700"/>
+
+---
+
+### 📤 Download/Share Options
+<img src="./public/screenshots/download-share.png" alt="Download-Share Preview" width="700"/>
+
+---
+
+### 📄 Final Resume Preview
+<img src="./public/screenshots/resume-preview.png" alt="Resume Preview" width="300" />
+
+
 
 
