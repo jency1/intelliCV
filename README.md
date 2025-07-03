@@ -100,5 +100,14 @@ IntelliCV is a powerful and intuitive resume builder platform designed to help u
 <img src="./public/screenshots/resume-preview.png" alt="Resume Preview" width="300" />
 
 
+---
 
+<br>
+
+<div align="center">
+
+Thank you for checking out <strong>intelliCV</strong>! 🧾 <br>
+If you like this project, feel free to give it a star! ⭐ <br>
+
+</div>
 
