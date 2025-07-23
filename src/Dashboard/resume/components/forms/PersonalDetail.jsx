@@ -18,7 +18,7 @@ function PersonalDetail({ enabledNext = () => {} }) {
     console.log(params);
   }, [params]);
 
-  //   Handle Input Change
+  // Handle Input Change
   const handleInputChange = (e) => {
     enabledNext(false);
     const { name, value } = e.target;
@@ -34,7 +34,7 @@ function PersonalDetail({ enabledNext = () => {} }) {
     }));
   };
 
-  //   On Save
+  // On Save
   const onSave = (e) => {
     e.preventDefault();
     setLoading(true);
@@ -158,10 +158,9 @@ function PersonalDetail({ enabledNext = () => {} }) {
         {/* Save */}
         <div className="mt-3 flex justify-end">
           <Button
-            type="button"
+            type="submit"
             className="text-xs sm:text-sm md:text-base cursor-pointer"
             disabled={loading}
-            onClick={(e) => onSave(e)}
           >
             {loading ? <LoaderCircle className="animate-spin" /> : "Save"}
           </Button>
