@@ -11,7 +11,11 @@ import { ArrowLeft, ArrowRight, Home, LayoutGrid } from "lucide-react";
 import ThemeColor from "./ThemeColor";
 
 function FormSection() {
-  const [activeFormIndex, setActiveFormIndex] = useState(1); // Starting form index
+  const [activeFormIndex, setActiveFormIndex] = useState(() => {
+    const saved = localStorage.getItem("resumeFormIndex");
+    return saved ? parseInt(saved) : 1;
+  });
+
   const [enabledNext, setEnabledNext] = useState(false);
   const { resumeId } = useParams();
 

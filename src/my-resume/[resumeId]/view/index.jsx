@@ -5,7 +5,6 @@ import ResumePreview from "@/Dashboard/resume/components/ResumePreview";
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import GlobalApi from "./../../../../service/GlobalApi";
-import { RWebShare } from "react-web-share";
 
 function ViewResume() {
   const { resumeId } = useParams();
@@ -27,6 +26,21 @@ function ViewResume() {
     window.print();
   };
 
+  const handleShare = () => {
+    if (navigator.share) {
+      navigator
+        .share({
+          title: `${resumeInfo?.firstName} ${resumeInfo?.lastName} Resume`,
+          text: "Hello, open this to see my resume!",
+          url: `${import.meta.env.VITE_BASE_URL}/my-resume/${resumeId}/view`,
+        })
+        .then(() => console.log("Shared successfully!"))
+        .catch((err) => console.error("Share failed:", err));
+    } else {
+      alert("Web Share is not supported in this browser.");
+    }
+  };
+
   return (
     <ResumeInfoContext.Provider value={{ resumeInfo, setResumeInfo }}>
       <div id="no-print">
@@ -39,7 +53,7 @@ function ViewResume() {
           </h2>
           <p className="text-center text-gray-400">
             Now you are ready to download your resume and can share unique
-            resume url.{" "}
+            resume url.
           </p>
 
           {/* Buttons */}
@@ -53,24 +67,12 @@ function ViewResume() {
             </Button>
 
             {/* Share */}
-            <RWebShare
-              data={{
-                text: "Hello, open this to see my resume!",
-                url:
-                  import.meta.env.VITE_BASE_URL +
-                  "/my-resume/" +
-                  resumeId +
-                  "/view",
-                title:
-                  resumeInfo?.firstName +
-                  " " +
-                  resumeInfo?.lastName +
-                  " Resume",
-              }}
-              onClick={() => console.log("shared successfully!")}
+            <Button
+              className="cursor-pointer w-full md:w-auto"
+              onClick={handleShare}
             >
-              <Button className="cursor-pointer w-full md:w-auto">Share</Button>
-            </RWebShare>
+              Share
+            </Button>
           </div>
         </div>
       </div>

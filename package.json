@@ -29,7 +29,6 @@
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.4.1",
     "react-simple-wysiwyg": "^3.2.2",
-    "react-web-share": "^2.0.2",
     "sonner": "^2.0.3",
     "tailwind-merge": "^3.0.2",
     "tw-animate-css": "^1.2.5",
