@@ -119,6 +119,7 @@ function Achievements({ enabledNext }) {
       {/* Save Button */}
       <div className="flex justify-end mt-6">
         <Button
+          type="button"
           className="w-full sm:w-auto text-xs sm:text-sm md:text-base cursor-pointer"
           onClick={(e) => onSave(e)}
           disabled={loading}

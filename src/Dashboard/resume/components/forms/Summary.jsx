@@ -129,7 +129,7 @@ function Summary({ enabledNext }) {
         {/* Save Button */}
         <div className="flex justify-end">
           <Button
-            type="submit"
+            type="button"
             disabled={loading}
             className="text-xs md:text-sm cursor-pointer"
             onClick={(e) => onSave(e)}

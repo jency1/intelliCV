@@ -158,8 +158,8 @@ function PersonalDetail({ enabledNext = () => {} }) {
         {/* Save */}
         <div className="mt-3 flex justify-end">
           <Button
+            type="button"
             className="text-xs sm:text-sm md:text-base cursor-pointer"
-            type="submit"
             disabled={loading}
             onClick={(e) => onSave(e)}
           >

@@ -227,6 +227,7 @@ function Experience({ enabledNext }) {
           </div>
 
           <Button
+            type="button"
             className="px-4 py-1.5"
             onClick={(e) => onSave(e)}
             disabled={loading}

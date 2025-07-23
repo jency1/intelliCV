@@ -219,6 +219,7 @@ function Education({ enabledNext }) {
 
         {/* Save Button */}
         <Button
+          type="button"
           className="cursor-pointer text-xs sm:text-sm md:text-base w-full sm:w-auto justify-center"
           disabled={loading}
           onClick={(e) => onSave(e)}

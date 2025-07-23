@@ -7,10 +7,11 @@ import Skills from "./forms/Skills";
 import Achievements from "./forms/Achievements";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, ArrowRight, Home, LayoutGrid } from "lucide-react";
+import { ArrowLeft, ArrowRight, Home } from "lucide-react";
 import ThemeColor from "./ThemeColor";
 
 function FormSection() {
+  // Load from localStorage during initial state setup
   const [activeFormIndex, setActiveFormIndex] = useState(() => {
     const saved = localStorage.getItem("resumeFormIndex");
     return saved ? parseInt(saved) : 1;
@@ -19,25 +20,36 @@ function FormSection() {
   const [enabledNext, setEnabledNext] = useState(false);
   const { resumeId } = useParams();
 
-  // Add useEffect to persist the active form index
-  useEffect(() => {
-    const savedIndex = localStorage.getItem("resumeFormIndex");
-    if (savedIndex) {
-      setActiveFormIndex(parseInt(savedIndex));
-    }
-  }, []);
-
-  // Update localStorage whenever activeFormIndex changes
+  // Save activeFormIndex to localStorage whenever it changes
   useEffect(() => {
     localStorage.setItem("resumeFormIndex", activeFormIndex.toString());
   }, [activeFormIndex]);
 
+  // Form Rendering
+  const renderForm = () => {
+    switch (activeFormIndex) {
+      case 1:
+        return <PersonalDetail enabledNext={(v) => setEnabledNext(v)} />;
+      case 2:
+        return <Summary enabledNext={(v) => setEnabledNext(v)} />;
+      case 3:
+        return <Experience enabledNext={(v) => setEnabledNext(v)} />;
+      case 4:
+        return <Education enabledNext={(v) => setEnabledNext(v)} />;
+      case 5:
+        return <Skills enabledNext={(v) => setEnabledNext(v)} />;
+      case 6:
+        return <Achievements enabledNext={(v) => setEnabledNext(v)} />;
+      case 7:
+        return <Navigate to={`/my-resume/${resumeId}/view`} />;
+      default:
+        return null;
+    }
+  };
+
   return (
     <div>
-      {/* ------------------------------------------- */}
-
-      {/* Buttons */}
-
+      {/* Header Controls */}
       <div className="flex justify-between items-center">
         <div className="flex gap-3">
           {/* Home Button */}
@@ -46,8 +58,6 @@ function FormSection() {
               <Home />
             </Button>
           </Link>
-
-          {/* Theme Options Button */}
           <ThemeColor />
         </div>
 
@@ -57,9 +67,7 @@ function FormSection() {
             <Button
               className="cursor-pointer"
               size="sm"
-              onClick={() => {
-                setActiveFormIndex(activeFormIndex - 1);
-              }}
+              onClick={() => setActiveFormIndex(activeFormIndex - 1)}
             >
               <ArrowLeft />
             </Button>
@@ -70,41 +78,15 @@ function FormSection() {
             disabled={!enabledNext}
             className="flex gap-2 cursor-pointer"
             size="sm"
-            onClick={() => {
-              setActiveFormIndex(activeFormIndex + 1);
-            }}
+            onClick={() => setActiveFormIndex(activeFormIndex + 1)}
           >
             Next <ArrowRight />
           </Button>
         </div>
       </div>
 
-      {/* ------------------------------------------- */}
-
-      {/* Form */}
-
-      {/* Personal Details */}
-      {/* Summary */}
-      {/* Professional Experience */}
-      {/* Educational Details */}
-      {/* Skills */}
-      {/* Achievements */}
-
-      {activeFormIndex == 1 ? (
-        <PersonalDetail enabledNext={(v) => setEnabledNext(v)} />
-      ) : activeFormIndex == 2 ? (
-        <Summary enabledNext={(v) => setEnabledNext(v)} />
-      ) : activeFormIndex == 3 ? (
-        <Experience enabledNext={(v) => setEnabledNext(v)} />
-      ) : activeFormIndex == 4 ? (
-        <Education enabledNext={(v) => setEnabledNext(v)} />
-      ) : activeFormIndex == 5 ? (
-        <Skills enabledNext={(v) => setEnabledNext(v)} />
-      ) : activeFormIndex == 6 ? (
-        <Achievements enabledNext={(v) => setEnabledNext(v)} />
-      ) : activeFormIndex == 7 ? (
-        <Navigate to={"/my-resume/" + resumeId + "/view"} />
-      ) : null}
+      {/* Render Current Form */}
+      <div className="mt-6">{renderForm()}</div>
     </div>
   );
 }
