@@ -9,12 +9,14 @@ import Dashboard from "./Dashboard";
 import { ClerkProvider } from "@clerk/clerk-react";
 import EditResume from "./Dashboard/resume/[resumeId]";
 import ViewResume from "./my-resume/[resumeId]/view";
+import NotFound from "./NotFound";
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
 const router = createBrowserRouter([
   {
     element: <App />,
+    errorElement: <NotFound />,
     children: [
       {
         path: "/dashboard",
@@ -29,6 +31,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
+    errorElement: <NotFound />,
   },
   {
     path: "/auth/sign-in",
@@ -37,6 +40,10 @@ const router = createBrowserRouter([
   {
     path: "/my-resume/:resumeId/view",
     element: <ViewResume />,
+  },
+  {
+    path: "*",
+    element: <NotFound />,
   },
 ]);
 
