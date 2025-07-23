@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ResumeInfoContext } from "@/context/ResumeInfoContext";
 import ResumePreview from "@/Dashboard/resume/components/ResumePreview";
 import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import GlobalApi from "./../../../../service/GlobalApi";
 
 function ViewResume() {
@@ -65,7 +65,6 @@ function ViewResume() {
             >
               Download
             </Button>
-
             {/* Share */}
             <Button
               className="cursor-pointer w-full md:w-auto"

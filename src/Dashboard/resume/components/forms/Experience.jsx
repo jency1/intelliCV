@@ -26,9 +26,14 @@ function Experience({ enabledNext }) {
 
   //   Load Experience
   useEffect(() => {
-    resumeInfo?.experience.length > 0 &&
-      setExperienceList(resumeInfo?.experience);
-  }, []);
+    if (
+      resumeInfo?.experience?.length > 0 &&
+      experienceList.length === 1 &&
+      experienceList[0].title === ""
+    ) {
+      setExperienceList(resumeInfo.experience);
+    }
+  }, [resumeInfo]);
 
   //   Handle Change
   const handleChange = (index, event) => {
@@ -66,8 +71,10 @@ function Experience({ enabledNext }) {
   }, [experienceList]);
 
   //   On Save
-  const onSave = () => {
+  const onSave = (e) => {
+    e.preventDefault();
     setLoading(true);
+
     const data = {
       data: {
         experience: experienceList.map(({ id, ...rest }) => rest),
@@ -219,7 +226,11 @@ function Experience({ enabledNext }) {
             </Button>
           </div>
 
-          <Button className="px-4 py-1.5" onClick={onSave} disabled={loading}>
+          <Button
+            className="px-4 py-1.5"
+            onClick={(e) => onSave(e)}
+            disabled={loading}
+          >
             {loading ? (
               <LoaderCircle className="animate-spin w-4 h-4" />
             ) : (

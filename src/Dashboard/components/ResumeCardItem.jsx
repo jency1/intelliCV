@@ -55,7 +55,10 @@ function ResumeCardItem({ resume, refreshData }) {
   return (
     <>
       <div className="w-full max-w-xs">
-        <Link to={"/dashboard/resume/" + resume.documentId + "/edit"}>
+        <Link
+          to={"/dashboard/resume/" + resume.documentId + "/edit"}
+          onClick={() => localStorage.setItem("resumeFormIndex", "1")}
+        >
           <div
             className="p-14 bg-secondary flex items-center justify-center h-[280px] border-t-4 border-primary rounded-lg hover:scale-105 transition-all hover:shadow-xs shadow-primary bg-gradient-to-b
           from-pink-100 via-purple-200 to-blue-200"

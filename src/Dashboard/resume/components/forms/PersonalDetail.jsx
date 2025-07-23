@@ -161,6 +161,7 @@ function PersonalDetail({ enabledNext = () => {} }) {
             className="text-xs sm:text-sm md:text-base cursor-pointer"
             type="submit"
             disabled={loading}
+            onClick={(e) => onSave(e)}
           >
             {loading ? <LoaderCircle className="animate-spin" /> : "Save"}
           </Button>

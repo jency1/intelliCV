@@ -132,6 +132,7 @@ function Summary({ enabledNext }) {
             type="submit"
             disabled={loading}
             className="text-xs md:text-sm cursor-pointer"
+            onClick={(e) => onSave(e)}
           >
             {loading ? <LoaderCircle className="animate-spin" /> : "Save"}
           </Button>

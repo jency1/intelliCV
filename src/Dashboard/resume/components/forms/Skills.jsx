@@ -68,7 +68,8 @@ function Skills({ enabledNext }) {
   };
 
   // On Save - Save updated skills to backend
-  const onSave = () => {
+  const onSave = (e) => {
+    e.preventDefault();
     setLoading(true);
 
     const filteredSkills = skills
@@ -146,7 +147,7 @@ function Skills({ enabledNext }) {
       <div className="flex justify-end mt-6">
         <Button
           className="w-full sm:w-auto text-xs sm:text-sm md:text-base cursor-pointer"
-          onClick={onSave}
+          onClick={(e) => onSave(e)}
           disabled={loading}
         >
           {loading ? <LoaderCircle className="animate-spin" /> : "Save"}

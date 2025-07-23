@@ -26,8 +26,14 @@ function Education({ enabledNext }) {
 
   //   Load Educational List
   useEffect(() => {
-    resumeInfo && setEducationalList(resumeInfo?.education);
-  }, []);
+    if (
+      resumeInfo?.education?.length > 0 &&
+      educationalList.length === 1 &&
+      educationalList[0].universityName === ""
+    ) {
+      setEducationalList(resumeInfo.education);
+    }
+  }, [resumeInfo]);
 
   // Handle Change
   const handleChange = (event, index) => {
@@ -59,7 +65,8 @@ function Education({ enabledNext }) {
   };
 
   // OnSave
-  const onSave = () => {
+  const onSave = (e) => {
+    e.preventDefault();
     setLoading(true);
 
     const data = {
@@ -214,7 +221,7 @@ function Education({ enabledNext }) {
         <Button
           className="cursor-pointer text-xs sm:text-sm md:text-base w-full sm:w-auto justify-center"
           disabled={loading}
-          onClick={() => onSave()}
+          onClick={(e) => onSave(e)}
         >
           {loading ? <LoaderCircle className="animate-spin w-4 h-4" /> : "Save"}
         </Button>
