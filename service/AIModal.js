@@ -1,9 +1,3 @@
-// const {
-//     GoogleGenerativeAI,
-//     HarmCategory,
-//     HarmBlockThreshold,
-//   } = require("@google/generative-ai");
-
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const apiKey = import.meta.env.VITE_GOOGLE_API_KEY;
@@ -23,7 +17,5 @@ const generationConfig = {
 
 export const AIChatSession = model.startChat({
   generationConfig,
-  // safetySettings: Adjust safety settings
-  // See https://ai.google.dev/gemini-api/docs/safety-settings
   history: [],
 });
